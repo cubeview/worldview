@@ -64,8 +64,7 @@ class WorldView:
 
         # Declare instance attributes
         self.actions = []
-        self.menu = self.tr(u'&Worldview
-')
+        self.menu = self.tr(u'&Worldview')
         # TODO: We are going to let the user set this up in a future iteration
         self.toolbar = self.iface.addToolBar(u'WorldView')
         self.toolbar.setObjectName(u'WorldView')
@@ -174,8 +173,7 @@ class WorldView:
         """Removes the plugin menu item and icon from QGIS GUI."""
         for action in self.actions:
             self.iface.removePluginVectorMenu(
-                self.tr(u'&Worldview
-'),
+                self.tr(u'&Worldview'),
                 action)
             self.iface.removeToolBarIcon(action)
         # remove the toolbar
@@ -192,4 +190,8 @@ class WorldView:
         if result:
             # Do something useful here - delete the line containing pass and
             # substitute with your code.
-            pass
+            world_shp = os.path.join(os.path.dirname(__file__),
+                                     'data', 'TM_WORLD_BORDERS-0.3.shp')
+            layer = self.iface.addVectorLayer(world_shp, "world", "ogr")
+            if not layer:
+                print "Layer failed to load!"

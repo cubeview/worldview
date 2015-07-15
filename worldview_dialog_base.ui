@@ -10,8 +10,7 @@
    </rect>
   </property>
   <property name="windowTitle" >
-   <string>Worldview
-</string>
+   <string>Worldview</string>
   </property>
   <widget class="QDialogButtonBox" name="button_box" >
    <property name="geometry" >
